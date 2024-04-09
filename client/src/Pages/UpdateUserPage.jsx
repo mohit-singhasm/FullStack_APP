@@ -11,7 +11,9 @@ const UpdateUserPage = () => {
     isAdmin: "",
   });
 
-  const [update, setUpdate] = useState(false)
+  const constLink = "https://full-stack-app-xi.vercel.app/api";
+
+  const [update, setUpdate] = useState(false);
 
   const { token } = useAuth();
   const params = useParams();
@@ -30,7 +32,7 @@ const UpdateUserPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateUser(user);
-    setUpdate(true)
+    setUpdate(true);
   };
 
   //Getting the User from mongodb
@@ -38,7 +40,7 @@ const UpdateUserPage = () => {
   const getUser = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/admin/users/${params.id}`,
+        `${constLink}/admin/users/${params.id}`,
         {
           method: "GET",
           headers: { Authorization: token },
@@ -59,7 +61,7 @@ const UpdateUserPage = () => {
   const updateUser = async (user) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/admin/users/update/${params.id}`,
+        `${constLink}/admin/users/update/${params.id}`,
         {
           method: "PATCH",
           headers: {

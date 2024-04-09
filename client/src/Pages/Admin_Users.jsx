@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 const Admin_Users = () => {
   const { token } = useAuth();
   const [users, setUsers] = useState([]);
+  const constLink = "https://full-stack-app-xi.vercel.app/api"
 
   // Getting user data function
 
   const getAllUsersData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/admin/users", {
+      const response = await fetch(`${constLink}/admin/users`, {
         method: "GET",
         headers: { Authorization: token },
       });
@@ -26,7 +27,7 @@ const Admin_Users = () => {
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/admin/users/delete/${id}`,
+        `${constLink}/admin/users/delete/${id}`,
         {
           method: "DELETE",
           headers: { Authorization: token },

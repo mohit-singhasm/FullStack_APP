@@ -12,6 +12,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const { storeTokenInLs } = useAuth();
+  const constLink = "https://full-stack-app-xi.vercel.app/api";
 
   // lets tackle our handleInput
   const handleInput = (e) => {
@@ -43,7 +44,7 @@ const Login = () => {
     // }
 
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/login`, {
+      const response = await fetch(`${constLink}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

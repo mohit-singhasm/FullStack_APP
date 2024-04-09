@@ -11,6 +11,8 @@ const Contact = () => {
     message: "",
   });
 
+  const constLink = "https://full-stack-app-xi.vercel.app/api"
+
   const [userAvai, setUserAvai] = useState(true);
 
   if (userAvai && user) {
@@ -45,7 +47,7 @@ const Contact = () => {
 
   const setData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/form/contact", {
+      const response = await fetch(`${constLink}/form/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -15,6 +15,8 @@ const Register = () => {
     password: "",
   });
 
+  const constLink = "https://full-stack-app-xi.vercel.app/api";
+
   const navigate = useNavigate();
   const { storeTokenInLs } = useAuth();
 
@@ -51,7 +53,7 @@ const Register = () => {
     // }
 
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/register`, {
+      const response = await fetch(`${constLink}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

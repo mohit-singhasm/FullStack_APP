@@ -7,11 +7,13 @@ const Admin_Contacts = () => {
   // console.log(token)
   const [contacts, setContacts] = useState([]);
 
+  const constLink = "https://full-stack-app-xi.vercel.app/api"
+
   // Getting all users
 
   const getAllContactData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/admin/contacts", {
+      const response = await fetch(`${constLink}/admin/contacts`, {
         method: "GET",
         headers: { Authorization: token },
       });
@@ -29,7 +31,7 @@ const Admin_Contacts = () => {
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/admin/contacts/delete/${id}`,
+        `${constLink}/admin/contacts/delete/${id}`,
         {
           method: "DELETE",
           headers: { Authorization: token },
