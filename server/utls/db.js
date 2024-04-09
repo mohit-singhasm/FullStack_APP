@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import 'dotenv/config'
 
-// const uri = 'mongodb+srv://360globalseo11:global321@cluster0.j4c5hzr.mongodb.net/mernAdmin?retryWrites=true&w=majority'
+const uri = 'mongodb+srv://mohitsinghasm:Itachi123@cluster0.6ql6ece.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
-const uri = process.env.MONGO_URI
+// const uri = process.env.MONGO_URI
 // console.log(uri)
 
 

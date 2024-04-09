@@ -10,8 +10,8 @@ import cors from "cors";
 
 dotenv.config()
 
-const Port = process.env.PORT;
-// const Port = 300
+// const Port = process.env.PORT;
+const Port = 3000
 console.log(Port);
 const app = express();
 
@@ -41,6 +41,4 @@ connectDb().then(() => {
   });
 });
 
-// app.listen(Port, () => {
-//     console.log(`Your port is running on ${Port}!!`)
-// })
+
