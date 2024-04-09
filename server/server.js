@@ -16,7 +16,7 @@ console.log(Port);
 const app = express();
 
 const corsOptions = {
-  origin: "",
+  origin: "https://full-stack-app-frontend-six.vercel.app",
   methods: "GET, POST, PATCH, HEAD, DELETE, PUT",
   credentials: true,
 };
