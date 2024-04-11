@@ -7,6 +7,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { MdDesignServices } from "react-icons/md";
 
 const SideBar = () => {
   const [openSideBar, setOpenSideBar] = useState(true);
@@ -81,6 +82,19 @@ const SideBar = () => {
                 {openSideBar ? (
                   <span className="ms-3">Contact Mail</span>
                 ) : null}
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-primaryBg hover:text-primaryText transition-all duration-200 ${
+                  openSideBar ? "justify-start" : "justify-center"
+                }`}
+                to="/admin/services"
+              >
+                <MdDesignServices className="text-2xl shrink-0" />
+                {/* <span className="ms-3">Dashboard</span> */}
+                {openSideBar ? <span className="ms-3">Services</span> : null}
               </Link>
             </li>
 

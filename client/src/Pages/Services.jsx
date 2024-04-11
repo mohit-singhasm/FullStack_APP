@@ -13,33 +13,6 @@ const Services = () => {
   // console.log(services)
 
   return (
-    // <section className='services-section'>
-    //   <div className="container">
-    //     <h1 className="main-heading">Services</h1>
-    //   </div>
-    //   <div className="container grid grid-three-cols">
-    //     {
-    //       services.map((e) => {
-    //         const { provider, price, service, description } = e
-    //         return (
-    //           <div className="card" key={e._id}>
-    //             <div className="card-image">
-    //               <img src="/images/design.png" alt="service img" width='300' />
-    //             </div>
-    //             <div className="card-details" >
-    //               <div className="grid grid-two-cols">
-    //                 <p>{provider}</p>
-    //                 <p>${price}</p>
-    //               </div>
-    //               <h2>{service}</h2>
-    //               <p>{description}</p>
-    //             </div>
-    //           </div>)
-    //       })
-    //     }
-    //   </div>
-    // </section>
-
     <section className="relative bg-primaryBg">
       <span className="block w-full h-full absolute top-0 left-0">
         <img
@@ -124,7 +97,9 @@ const Services = () => {
                     {/* <span className="text-xl font-semibold text-primaryHeading">
                     {service}
                   </span> */}
-                    <span className="text-sm text-primaryText">{description}</span>
+                    <span className="text-sm text-primaryText">
+                      {description}
+                    </span>
                   </div>
                 </div>
               </div>

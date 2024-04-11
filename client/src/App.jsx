@@ -13,6 +13,7 @@ import Admin_Layout from "./components/Layouts/Admin_Layout";
 import Admin_Contact from "./Pages/Admin_Contacts";
 import Admin_User from "./Pages/Admin_Users";
 import UpdateUserPage from "./Pages/UpdateUserPage";
+import Admin_Services from "./Pages/Admin_Services";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="users" element={<Admin_User />} />
             <Route path="contacts" element={<Admin_Contact />} />
             <Route path="users/:id/edit" element={<UpdateUserPage />} />
+            <Route path="services" element={<Admin_Services />} />
           </Route>
         </Routes>
         <Footer />

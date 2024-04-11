@@ -1,8 +1,5 @@
 import React from "react";
-import { NavLink, Navigate, Outlet } from "react-router-dom";
-import { FaHome, FaUserTie } from "react-icons/fa";
-import { MdContactMail } from "react-icons/md";
-import { GrBusinessService } from "react-icons/gr";
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../../store/auth";
 import SideBar from "../SideBar/SideBar";
 
