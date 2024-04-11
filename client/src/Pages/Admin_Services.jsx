@@ -73,7 +73,7 @@ const Admin_Services = () => {
               </th>
             </tr>
           </thead>
-          {users.map((e) => {
+          {service.map((e) => {
             // const { username, email, phone, _id } = user;
             const { provider, price, service, description } = e;
             return (
@@ -91,7 +91,7 @@ const Admin_Services = () => {
                   <td className="px-6 py-4">
                     <Link
                       className="bg-primary text-white px-6 py-2 rounded-full"
-                      to={`/admin/users/${_id}/edit`}
+                      to={`/admin/service/${_id}/edit`}
                     >
                       Update
                     </Link>
