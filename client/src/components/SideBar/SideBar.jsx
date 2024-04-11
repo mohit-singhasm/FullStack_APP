@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { RiDashboard2Fill } from "react-icons/ri";
-import { FaArrowLeft, FaArrowRight, FaFileContract, FaUsers } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaFileContract,
+  FaUsers,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
@@ -32,7 +37,6 @@ const SideBar = () => {
         }`}
         aria-label="Sidebar"
       >
-        {console.log(openSideBar)}
         <button
           className="absolute top-5 -right-5 bg-green-200 rounded-full p-2"
           onClick={changeSideBar}
@@ -74,7 +78,9 @@ const SideBar = () => {
               >
                 <FaFileContract className="text-2xl shrink-0" />
                 {/* <span className="ms-3">Dashboard</span> */}
-                {openSideBar ? <span className="ms-3">Contact Mail</span> : null}
+                {openSideBar ? (
+                  <span className="ms-3">Contact Mail</span>
+                ) : null}
               </Link>
             </li>
 

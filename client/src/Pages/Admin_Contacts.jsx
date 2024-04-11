@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
-import {Link} from "react-router-dom"
 
 const Admin_Contacts = () => {
   const { token } = useAuth();
   // console.log(token)
   const [contacts, setContacts] = useState([]);
 
-  const constLink = "https://full-stack-app-xi.vercel.app/api"
+  const constLink = "https://full-stack-app-xi.vercel.app/api";
 
   // Getting all users
 
@@ -30,13 +29,10 @@ const Admin_Contacts = () => {
   // deleting the users of given id
   const deleteUser = async (id) => {
     try {
-      const response = await fetch(
-        `${constLink}/admin/contacts/delete/${id}`,
-        {
-          method: "DELETE",
-          headers: { Authorization: token },
-        }
-      );
+      const response = await fetch(`${constLink}/admin/contacts/delete/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: token },
+      });
       // console.log(response)
       const data = await response.json();
       if (response.ok) {
