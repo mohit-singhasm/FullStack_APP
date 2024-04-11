@@ -6,7 +6,6 @@ import SideBar from "../SideBar/SideBar";
 const Admin_Layout = () => {
   const { user, isLoading } = useAuth();
 
-  console.log(isLoading);
   if (isLoading) {
     return <h1>Loading......</h1>;
   }

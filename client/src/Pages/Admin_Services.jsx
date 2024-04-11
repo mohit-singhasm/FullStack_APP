@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const Admin_Services = () => {
   const { token } = useAuth();
-  const [users, setUsers] = useState([]);
+  const [service, setService] = useState([]);
   const constLink = "https://full-stack-app-xi.vercel.app/api";
 
   // const { provider, price, service, description } = e;
 
   // Getting user data function
 
-  const getAllUsersData = async () => {
+  const getServices = async () => {
     try {
       const response = await fetch(`${constLink}/data/service`, {
         method: "GET",
@@ -19,14 +19,15 @@ const Admin_Services = () => {
       });
       const data = await response.json();
       if (response.ok) {
-        setUsers(data.allUsers);
+        console.log(data)
+        setService(data.servicesAll);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const deleteUser = async (id) => {
+  const deleteService = async (id) => {
     try {
       const response = await fetch(`${constLink}/data/service/delete/${id}`, {
         method: "DELETE",
@@ -35,8 +36,7 @@ const Admin_Services = () => {
       // console.log(response)
       const data = await response.json();
       if (response.ok) {
-        console.log(data);
-        getAllUsersData();
+        getServices()
       }
     } catch (error) {
       console.log(error);
@@ -44,7 +44,7 @@ const Admin_Services = () => {
   };
 
   useEffect(() => {
-    getAllUsersData();
+    getServices()
   }, []);
 
   return (
@@ -100,7 +100,7 @@ const Admin_Services = () => {
                     <button
                       className="bg-primary text-white px-6 py-2 rounded-full"
                       onClick={() => {
-                        deleteUser(_id);
+                        deleteService(_id);
                       }}
                     >
                       Delete
