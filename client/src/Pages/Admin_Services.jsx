@@ -13,7 +13,7 @@ const Admin_Services = () => {
 
   const getAllUsersData = async () => {
     try {
-      const response = await fetch(`${constLink}/admin/data/service`, {
+      const response = await fetch(`${constLink}/data/service`, {
         method: "GET",
         headers: { Authorization: token },
       });
@@ -28,7 +28,7 @@ const Admin_Services = () => {
 
   const deleteUser = async (id) => {
     try {
-      const response = await fetch(`${constLink}/admin/service/delete/${id}`, {
+      const response = await fetch(`${constLink}/data/service/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: token },
       });
