@@ -13,7 +13,7 @@ const Admin_Contacts = () => {
 
   const getAllContactData = async () => {
     try {
-      const response = await fetch(`${constLink}/admin/contacts`, {
+      const response = await fetch(`${constLink}/form/contacts`, {
         method: "GET",
         headers: { Authorization: token },
       });
