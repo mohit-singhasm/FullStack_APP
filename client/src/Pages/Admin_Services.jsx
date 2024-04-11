@@ -19,7 +19,7 @@ const Admin_Services = () => {
       });
       const data = await response.json();
       if (response.ok) {
-        console.log(data)
+        console.log(data);
         setService(data.servicesAll);
       }
     } catch (error) {
@@ -36,7 +36,7 @@ const Admin_Services = () => {
       // console.log(response)
       const data = await response.json();
       if (response.ok) {
-        getServices()
+        getServices();
       }
     } catch (error) {
       console.log(error);
@@ -44,7 +44,7 @@ const Admin_Services = () => {
   };
 
   useEffect(() => {
-    getServices()
+    getServices();
   }, []);
 
   return (
@@ -75,7 +75,7 @@ const Admin_Services = () => {
           </thead>
           {service.map((e) => {
             // const { username, email, phone, _id } = user;
-            const { provider, price, service, description } = e;
+            const { _id, provider, price, service, description } = e;
             return (
               <tbody key={_id}>
                 <tr className="bg-white border-b">
@@ -86,7 +86,7 @@ const Admin_Services = () => {
                     {provider}
                   </th>
                   <td className="px-6 py-4">{service}</td>
-                  <td className="px-6 py-4">{price}</td>
+                  <td className="px-6 py-4">₹ {price}</td>
                   <td className="px-6 py-4">{description}</td>
                   <td className="px-6 py-4">
                     <Link
