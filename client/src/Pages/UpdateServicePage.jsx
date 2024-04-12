@@ -5,6 +5,7 @@ import { shape3, shape6 } from "../images/ImagesExport";
 
 const UpdateServicePage = () => {
   const [service, setService] = useState({
+    imgUrl: "",
     provider: "",
     service: "",
     price: "",
@@ -180,6 +181,26 @@ const UpdateServicePage = () => {
                 autoComplete="off"
                 value={service.description}
                 onChange={handleInput}
+                className="px-7 py-3 rounded-full border border-1"
+              />
+            </div>
+            <div className="flex flex-col mb-6">
+              <label htmlFor="Upload_Image" className="mb-3">
+                Upload Image
+              </label>
+              <input
+                type="file"
+                name="image"
+                placeholder="Upload Image"
+                id="Upload_Image"
+                required
+                autoComplete="off"
+                value={service.imgUrl}
+                onChange={(e) => {
+                  setService((prev) => {
+                    return { ...prev, imgUrl: e.target.files[0] };
+                  });
+                }}
                 className="px-7 py-3 rounded-full border border-1"
               />
             </div>

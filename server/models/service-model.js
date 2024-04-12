@@ -5,6 +5,9 @@ const serviceModel = new Schema({
         type: String,
         required: true,
     },
+    imgUrl: {
+        type: String,
+    },
     description: {
         type: String,
         required: true,

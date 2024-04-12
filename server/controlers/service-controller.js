@@ -25,6 +25,7 @@ const service = async (req, res) => {
 const updateSingleService = async (req, res) => {
   const id = req.params.id;
   const updateService = req.body;
+  console.log(updateService)
 
   try {
     const updatedData = await Service.updateOne(
