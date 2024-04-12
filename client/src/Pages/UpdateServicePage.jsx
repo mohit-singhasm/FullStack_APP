@@ -195,7 +195,7 @@ const UpdateServicePage = () => {
                 id="Upload_Image"
                 required
                 autoComplete="off"
-                value={service.imgUrl}
+                // value={service.imgUrl}
                 onChange={(e) => {
                   setService((prev) => {
                     return { ...prev, imgUrl: e.target.files[0] };
