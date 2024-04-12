@@ -8,7 +8,6 @@ const contact = async (req, res) => {
   const { username, email, message } = req.body;
 
   const contactExist = await Contact.findOne({ email });
-  console.log(contactExist);
 
   if (contactExist) {
     console.log("contact hai bhai");

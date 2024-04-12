@@ -19,7 +19,6 @@ const Admin_Services = () => {
       });
       const data = await response.json();
       if (response.ok) {
-        console.log(data);
         setService(data.servicesAll);
       }
     } catch (error) {
@@ -91,9 +90,9 @@ const Admin_Services = () => {
                   <td className="px-6 py-4">
                     <Link
                       className="bg-primary text-white px-6 py-2 rounded-full"
-                      to={`/admin/service/${_id}/edit`}
+                      to={`/admin/services/${_id}/edit`}
                     >
-                      Update
+                      Edit
                     </Link>
                   </td>
                   <td className="px-6 py-4">

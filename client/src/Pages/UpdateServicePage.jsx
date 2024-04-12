@@ -3,12 +3,12 @@ import { useAuth } from "../store/auth";
 import { Navigate, useParams } from "react-router-dom";
 import { shape3, shape6 } from "../images/ImagesExport";
 
-const UpdateUserPage = () => {
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    phone: "",
-    isAdmin: "",
+const UpdateServicePage = () => {
+  const [service, setService] = useState({
+    provider: "",
+    service: "",
+    price: "",
+    description: "",
   });
 
   const constLink = "https://full-stack-app-xi.vercel.app/api";
@@ -21,7 +21,7 @@ const UpdateUserPage = () => {
   const handleInput = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    setUser((prev) => {
+    setService((prev) => {
       return {
         ...prev,
         [name]: value,
@@ -31,22 +31,22 @@ const UpdateUserPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateUser(user);
+    updateService(service);
     setUpdate(true);
   };
 
   //Getting the User from mongodb
 
-  const getUser = async () => {
+  const getService = async () => {
     try {
-      const response = await fetch(`${constLink}/admin/users/${params.id}`, {
+      const response = await fetch(`${constLink}/data/service/${params.id}`, {
         method: "GET",
         headers: { Authorization: token },
       });
       // console.log(response)
       const data = await response.json();
       if (response.ok) {
-        setUser((pre) => ({ ...pre, ...data.user }));
+        setService((pre) => ({ ...pre, ...data.service }));
       }
     } catch (error) {
       console.log(error);
@@ -55,29 +55,30 @@ const UpdateUserPage = () => {
 
   // Sending the updated user data to the database
 
-  const updateUser = async (user) => {
+  const updateService = async (service) => {
     try {
       const response = await fetch(
-        `${constLink}/admin/users/update/${params.id}`,
+        `${constLink}/data/service/update/${params.id}`,
         {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
             Authorization: token,
           },
-          body: JSON.stringify(user),
+          body: JSON.stringify(service),
         }
       );
     } catch (error) {
-      console.log(error, "updateUser");
+      console.log(error, "updateService");
     }
   };
 
   useEffect(() => {
-    getUser();
+    getService();
   }, []);
 
   return (
+    // const { provider, price, service, description } = e;
     <>
       <main className="py-36 w-full flex flex-col justify-center items-center bg-primaryBg relative">
         <span className="block w-full h-full absolute top-0 left-0">
@@ -119,71 +120,70 @@ const UpdateUserPage = () => {
           </div>
           <form className="mt-9" onSubmit={handleSubmit}>
             <div className="flex flex-col mb-6">
-              <label htmlFor="username" className="mb-3">
-                Username
+              <label htmlFor="provider" className="mb-3">
+                Provider
               </label>
               <input
                 type="text"
-                name="username"
-                placeholder="Username"
-                id="username"
+                name="provider"
+                placeholder="provider"
+                id="provider"
                 required
                 autoComplete="off"
-                value={user.username}
+                value={service.provider}
                 onChange={handleInput}
                 className="px-7 py-3 rounded-full border border-1"
               />
             </div>
             <div className="flex flex-col mb-6">
-              <label htmlFor="email" className="mb-3">
-                Email
+              <label htmlFor="service" className="mb-3">
+                Service
               </label>
               <input
-                type="email"
-                name="email"
+                type="text"
+                name="service"
                 placeholder="Example@gmail.com"
-                id="email"
+                id="service"
                 required
                 autoComplete="off"
-                value={user.email}
+                value={service.service}
                 onChange={handleInput}
                 className="px-7 py-3 rounded-full border border-1"
               />
             </div>
             <div className="flex flex-col mb-6">
-              <label htmlFor="phone" className="mb-3">
-                Phone
+              <label htmlFor="price" className="mb-3">
+                Price
               </label>
               <input
                 type="text"
-                name="phone"
-                placeholder="Phone"
-                id="Phone"
+                name="price"
+                placeholder="price"
+                id="price"
                 required
                 autoComplete="off"
-                value={user.phone}
+                value={service.price}
                 onChange={handleInput}
                 className="px-7 py-3 rounded-full border border-1"
               />
             </div>
-            <div>
-              <label
-                htmlFor="countries"
-                className="block my-2 text-sm text-gray-900"
-              >
-                Admin Status
+            <div className="flex flex-col mb-6">
+              <label htmlFor="description" className="mb-3">
+                Description
               </label>
-              <select
-                id="isAdmin"
-                name="isAdmin"
-                value={user.isAdmin}
+              <input
+                type="text"
+                name="description"
+                placeholder="description"
+                id="description"
+                required
+                autoComplete="off"
+                value={service.description}
                 onChange={handleInput}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400"
-              >
-                <option value="false">False</option>
-                <option value="true">True</option>
-              </select>
+                className="px-7 py-3 rounded-full border border-1"
+              />
             </div>
+
             <button
               type="submit"
               className="bg-primary text-white font-semibold px-7 py-3 rounded-full w-full mt-8"
@@ -191,11 +191,11 @@ const UpdateUserPage = () => {
               Submit
             </button>
           </form>
-          {update && <Navigate to="/admin/users" replace={true} />}
+          {update && <Navigate to="/admin/services" replace={true} />}
         </div>
       </main>
     </>
   );
 };
 
-export default UpdateUserPage;
+export default UpdateServicePage;

@@ -14,6 +14,7 @@ import Admin_Contact from "./Pages/Admin_Contacts";
 import Admin_User from "./Pages/Admin_Users";
 import UpdateUserPage from "./Pages/UpdateUserPage";
 import Admin_Services from "./Pages/Admin_Services";
+import UpdateServicePage from "./Pages/UpdateServicePage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="contacts" element={<Admin_Contact />} />
             <Route path="users/:id/edit" element={<UpdateUserPage />} />
             <Route path="services" element={<Admin_Services />} />
+            <Route path="services/:id/edit" element={<UpdateServicePage />} />
           </Route>
         </Routes>
         <Footer />

@@ -43,6 +43,25 @@ const updateSingleService = async (req, res) => {
 };
 
 // *-------------------------
+// Getting Single Service logic
+// *-------------------------
+
+const getSingleService = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const service = await Service.findOne({ _id: id }, { password: 0 });
+    if (!service) {
+      return res.status(404).json({ message: "No Service Found" });
+    }
+
+    return res.status(200).json({ service });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// *-------------------------
 // Delete Service logic
 // *-------------------------
 
@@ -62,4 +81,4 @@ const deleteSingleService = async (req, res) => {
   }
 };
 
-export { service, updateSingleService, deleteSingleService };
+export { service, updateSingleService, deleteSingleService, getSingleService };
