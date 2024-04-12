@@ -50,7 +50,7 @@ const getSingleService = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const service = await Service.findOne({ _id: id }, { password: 0 });
+    const service = await Service.findOne({ _id: id });
     if (!service) {
       return res.status(404).json({ message: "No Service Found" });
     }
