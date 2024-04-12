@@ -185,7 +185,7 @@ const UpdateServicePage = () => {
               />
             </div>
             <div className="flex flex-col mb-6">
-              <label htmlFor="Upload_Image" className="mb-3">
+              <label htmlFor="Upload_Image" className="mb-3 block text-sm font-medium text-gray-900 dark:text-white">
                 Upload Image
               </label>
               <input
@@ -193,7 +193,6 @@ const UpdateServicePage = () => {
                 name="image"
                 placeholder="Upload Image"
                 id="Upload_Image"
-                required
                 autoComplete="off"
                 // value={service.imgUrl}
                 onChange={(e) => {
@@ -201,7 +200,7 @@ const UpdateServicePage = () => {
                     return { ...prev, imgUrl: e.target.files[0] };
                   });
                 }}
-                className="px-7 py-3 rounded-full border border-1"
+                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
               />
             </div>
 

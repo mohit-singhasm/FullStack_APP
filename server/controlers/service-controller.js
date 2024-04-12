@@ -25,7 +25,6 @@ const service = async (req, res) => {
 const updateSingleService = async (req, res) => {
   const id = req.params.id;
   const updateService = req.body;
-  console.log(updateService)
 
   try {
     const updatedData = await Service.updateOne(
@@ -37,7 +36,7 @@ const updateSingleService = async (req, res) => {
       return res.status(404).json({ message: "No Service Found" });
     }
 
-    return res.status(201).json({ updatedData });
+    return res.status(201).json({ updatedData, updateService });
   } catch (error) {
     console.log(error);
   }
